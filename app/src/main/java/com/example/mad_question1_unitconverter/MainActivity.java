@@ -23,7 +23,11 @@ public class MainActivity extends AppCompatActivity {
     TextView convertedResult;
     Button convertBtn;
 
-    String[] units = {"Meters", "Centimeters", "Feet", "Inches", "Yards"};
+    String[] units = {
+            "Kilometers", "Hectometers", "Decameters", "Meters", "Decimeters",
+            "Centimeters", "Millimeters", "Inches", "Feet", "Yards", "Miles", "Nautical Miles"
+    };
+
     HashMap<String, Double> toMeterFactor;
 
     @Override
@@ -44,11 +48,19 @@ public class MainActivity extends AppCompatActivity {
 
         // Conversion factors to meters
         toMeterFactor = new HashMap<>();
+        toMeterFactor.put("Kilometers", 1000.0);
+        toMeterFactor.put("Hectometers", 100.0);
+        toMeterFactor.put("Decameters", 10.0);
         toMeterFactor.put("Meters", 1.0);
+        toMeterFactor.put("Decimeters", 0.1);
         toMeterFactor.put("Centimeters", 0.01);
-        toMeterFactor.put("Feet", 0.3048);
+        toMeterFactor.put("Millimeters", 0.001);
         toMeterFactor.put("Inches", 0.0254);
+        toMeterFactor.put("Feet", 0.3048);
         toMeterFactor.put("Yards", 0.9144);
+        toMeterFactor.put("Miles", 1609.344);
+        toMeterFactor.put("Nautical Miles", 1852.0);
+
 
         convertBtn.setOnClickListener(new View.OnClickListener() {
             @Override
